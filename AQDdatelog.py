@@ -188,7 +188,7 @@ def on_message(client, userdata, msg):
     #     my_dict[x] = None
 
 
-    my_dict['Datetime']=datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+    my_dict['Datetime']=datetime.datetime.now((datetime.timezone(datetime.timedelta(hours=8)))).strftime("%Y/%m/%d %H:%M:%S")
     my_dict['MAC'] = msg.topic
     # pprint(my_dict)
     macNumber=0
@@ -213,7 +213,7 @@ def on_message(client, userdata, msg):
     if(len(put_values[msg.topic])>=20):
         try:
             sheet.append_rows(put_values[msg.topic], table_range='A1')
-            print("%s 資料上傳成功，時間:%s"%(msg.topic, datetime.datetime.now().strftime("%Y/%m/%d %H:%M:%S")))
+            print("%s 資料上傳成功，時間:%s"%(msg.topic, datetime.datetime.now((datetime.timezone(datetime.timedelta(hours=8)))).strftime("%Y/%m/%d %H:%M:%S")))
         except Exception as e:
             print(e)
             return

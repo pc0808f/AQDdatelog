@@ -109,7 +109,7 @@ def on_connect(client, userdata, flags, rc):
 # 當接收到從伺服器發送的訊息時要進行的動作
 def on_message(client, userdata, msg):
     # 轉換編碼utf-8才看得懂中文
-    print(msg.topic+" "+ msg.payload.decode('utf-8'))
+    # print(msg.topic+" "+ msg.payload.decode('utf-8'))
     decode_data = json.loads(msg.payload.decode('utf-8'))
 
     if decode_data["CMD"] != 0 :

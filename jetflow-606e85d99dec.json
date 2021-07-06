@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "jetflow",
+  "private_key_id": "606e85d99dec99bd78a5eb5f4790d7154d119e1e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDK4GBDGAPbtTmx\n/H6O5QAzjBdlKveDohueXVKX2el3WBAwvmeWDMN6ze99DWiSvlWA4GHPaQzDy1jK\nuE5dcdmT/0S8DezfNgWPpGggkM/K5Bxq1Zi6o+CTR0i/RZ21OvXvu+glis9l9Z9j\nd6fxxatw92jdhCKpmdKeksWa+jL1eK0WyJWxxfheF0KReGqD+pfWT1ariBQESeB+\nvjOpS+H62wVfiKCexIxtTz3NHIsp/o5D8xq3DdowFtcCbLoDPceH233L0M78oV7C\nC82A0/6fhla2ifndm+lpYlQjnk2zCm9wWttqIxv7IjSptd/go2bGmmCwWW3SXgY3\nxSjBWEijAgMBAAECggEAQJm+/U5V2C22X/cjQ5QnAsL+ph/O7fL+MWjNBn6EqZR4\nn1TZ/j01N9MAigTtgiCqcF3Ct31fa69CKFcU2QuKOWak9+7FOPRmQ+2ZnJkQGa6W\nX+yA9Bl/xtYBk6pyxAUwz/Q5QU8YqIJUjSNKbqG/bDrUAQl00iWhnA3nb2hxNplz\n39xf7b+XLQNKxeNtgEtntaaiIOGwoXCC0RcjDgmlGMYL8u90CEQO4C2QlPqpZp8Q\n/LuEgUDjRpUZ/Bp5gG3AmlsLb60qZD9LIe2GjM+FI5VDBd6ymNcb+EK1OAhCXVgJ\nT+8kqZ+RE+nQIuJwJ1MfMlWXZ7YG38Rovsf4j+PI0QKBgQDtKMt1DIkjwRmHp9ql\n8kPr/wIbSXKuoALSob4cwfAkzCdpvJEEFDoY2h9jBCgkdmlwtCjyXLexat76wmrN\nT5RVhjnshGG8LoLY9n/2hQkcV5fJTP4CHnraAZIri/U9Z/YgrXqVudm9HFZQLxkG\n082+egC7ZI1ZLIL1GZjHtDFBMwKBgQDa/ls+qXnJofv8Ev9eJyk3kJa78bYVzlnh\nnSlz96i9OGD0T5mTsyzU9kuNDYBXf7RaUWLKXqyjHlwoj/XI61cLqLW4FXrvYmj+\nInCOvlUf6RzvCKac25Yz8GnTNxrU78yzmUc5awXMxF/BdaS9y40Cn7OQRCfO7FDK\nL6CHGzG60QKBgQC0xrfwDRIscvEm+sgsXrNvnP7aFe6ZNddw/2GPQjXvlr8kVlyk\nI1b1wq7SJ0UCJlDRXEMqG4raboBx3OjUf6iuWJamt3JYo4uSHrQEEfyT4iENjObC\nbsFulGv7TcAugqSW3CXpI7XZ9VPF42DMV38pho4wScGFC+z3L//Jmo1BCQKBgCB+\nNROrGcLtIfJY70MNFHSGI5dnWdkKcROkug3W5VaOEvStCuB7aV9/293l7vEMpbnw\n8XONcJgTXSE3mwRgxt2X/r59kWwLcgCjI4hKfV7qu7xL0Ezd1/+E4G7Scky99+V+\nDK9cTdQAHyUZS4RNu3J0N7RkKHPvZF1bi7oAMvTBAoGBAI/zDAlb0wWuVcQaOIlR\nXop9uFon8DzCFt5KV3qKxKiKjTc4Yja6OLgYsBd/pUnAscbaOegO/A1D9C3dVgmW\ngdB48yik3ARkxQmn4Dy6zl3zIgHO0Z7F9dGm+PMZY/QxdYT7rJK5iDizxAqkJO3k\nbVmHKJ1WtqYWwrEeaVwBNuyE\n-----END PRIVATE KEY-----\n",
+  "client_email": "jetflow@jetflow.iam.gserviceaccount.com",
+  "client_id": "112073798791611855787",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/jetflow%40jetflow.iam.gserviceaccount.com"
+}

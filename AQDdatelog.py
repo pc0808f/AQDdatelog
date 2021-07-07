@@ -7,7 +7,7 @@ import datetime
 
 import logging
 
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s : %(message)s')
+logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s : %(message)s')
 
 DATA_AVG_TIME = 10
 BATCH_DATA_NUMBER = 4
@@ -223,7 +223,8 @@ def on_message(client, userdata, msg):
             sheet.append_rows(put_values[msg.topic], table_range='A1')
             logging.info("%s 資料上傳成功，時間:%s"%(msg.topic, datetime.datetime.now((datetime.timezone(datetime.timedelta(hours=8)))).strftime("%Y/%m/%d %H:%M:%S")))
         except Exception as e:
-            print(e)
+            # logging.warning(e)
+            logging.error("Catch an exception.", exc_info=True)
             return
         # except:
         #     print("sheet error")

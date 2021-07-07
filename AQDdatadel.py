@@ -61,7 +61,7 @@ nowdatestr = TaipeiTime.strftime("%Y/%m/%d")
 # print(nowdatestr)
 
 logging.info("Processing date => %s"%nowdatestr)
-timedelta = datetime.timedelta(days=-3)
+timedelta = datetime.timedelta(days=-4)
 previousTime = TaipeiTime+timedelta
 nowdatestr = previousTime.strftime("%Y/%m/%d")
 # print('^'+ nowdatestr)

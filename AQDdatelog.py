@@ -5,8 +5,12 @@ import paho.mqtt.client as mqtt
 from pprint import pprint
 import datetime
 
-DATA_AVG_TIME = 5
+import logging
 
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s : %(message)s')
+
+DATA_AVG_TIME = 10
+BATCH_DATA_NUMBER = 4
 
 scope = ["https://spreadsheets.google.com/feeds",'https://www.googleapis.com/auth/spreadsheets',"https://www.googleapis.com/auth/drive.file","https://www.googleapis.com/auth/drive"]
 
@@ -93,13 +97,13 @@ def on_connect(client, userdata, flags, rc):
     # 如果我們失去連線或重新連線時
     # 地端程式將會重新訂閱
     client.subscribe(MachineMac[0]+"_DEV")
-    client.subscribe(MachineMac[1] + "_DEV")
-    client.subscribe(MachineMac[2] + "_DEV")
-    client.subscribe(MachineMac[3] + "_DEV")
-    client.subscribe(MachineMac[4] + "_DEV")
-    client.subscribe(MachineMac[5] + "_DEV")
-    client.subscribe(MachineMac[6] + "_DEV")
-    client.subscribe(MachineMac[7] + "_DEV")
+    # client.subscribe(MachineMac[1] + "_DEV")
+    # client.subscribe(MachineMac[2] + "_DEV")
+    # client.subscribe(MachineMac[3] + "_DEV")
+    # client.subscribe(MachineMac[4] + "_DEV")
+    # client.subscribe(MachineMac[5] + "_DEV")
+    # client.subscribe(MachineMac[6] + "_DEV")
+    # client.subscribe(MachineMac[7] + "_DEV")
     # client.subscribe("A8:03:2A:57:0C:E0_DEV")
     # client.subscribe("A8:03:2A:57:0C:FC_DEV")
     # client.subscribe("A8:03:2A:57:0C:CC_DEV")
@@ -121,7 +125,9 @@ def on_message(client, userdata, msg):
     # pprint(AQDlist)
     # pprint(len(AQDlist[msg.topic]))
     if (len(AQDlist[msg.topic])>DATA_AVG_TIME):
-        del AQDlist[msg.topic][0]
+        del AQDlist[msg.topic][0:DATA_AVG_TIME]
+
+    logging.debug("AQDlist[%s] have %d of data."%(msg.topic, len(AQDlist[msg.topic])))
 
 
 
@@ -160,7 +166,7 @@ def on_message(client, userdata, msg):
     for i in sensorlist:
         x = i
         my_dict[x] = 0.0
-        if (len(AQDlist[msg.topic]) == DATA_AVG_TIME):
+        if (len(AQDlist[msg.topic]) >= DATA_AVG_TIME):
 
             for i in range(0, DATA_AVG_TIME):
                 if AQDlist[msg.topic][i][x] != 65535:
@@ -175,8 +181,10 @@ def on_message(client, userdata, msg):
             if type(my_dict[x]) == type(0.0):
                 my_dict[x] = my_dict[x] / DATA_AVG_TIME
         else:
-            my_dict[x] = "None"
-
+            logging.debug("AQDlist[%s] is not enought" % (msg.topic))
+            return
+            # my_dict[x] = "None"
+    logging.debug("AQDlist[%s]計算平均成功" % (msg.topic))
     # x = "RH"
     # my_dict[x] = 0.0
     # if (len(AQDlist[msg.topic]) == DATA_AVG_TIME):
@@ -210,19 +218,21 @@ def on_message(client, userdata, msg):
 
     put_values[msg.topic].append(temp)
     # print("len"+msg.topic+"="+str(len(put_values[msg.topic])))
-    if(len(put_values[msg.topic])>=20):
+    if(len(put_values[msg.topic])>=BATCH_DATA_NUMBER):
         try:
             sheet.append_rows(put_values[msg.topic], table_range='A1')
-            print("%s 資料上傳成功，時間:%s"%(msg.topic, datetime.datetime.now((datetime.timezone(datetime.timedelta(hours=8)))).strftime("%Y/%m/%d %H:%M:%S")))
+            logging.info("%s 資料上傳成功，時間:%s"%(msg.topic, datetime.datetime.now((datetime.timezone(datetime.timedelta(hours=8)))).strftime("%Y/%m/%d %H:%M:%S")))
         except Exception as e:
             print(e)
             return
         # except:
         #     print("sheet error")
         #     return
-        del put_values[msg.topic][0:20]
+        del put_values[msg.topic][0:BATCH_DATA_NUMBER]
         if(len(put_values[msg.topic])>0):
             print("There is some data in put_value %d"%len(put_values[msg.topic]))
+    else:
+        logging.debug("%s,累計%d筆資料未上傳" % (msg.topic, len(put_values[msg.topic])))
     # spreadsheet.values_append(sheetName, {'valueInputOption': 'USER_ENTERED'}, {'values': put_values})
 
     # sheet.append_row(put_values,table_range='A1')

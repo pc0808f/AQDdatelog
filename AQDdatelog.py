@@ -225,6 +225,8 @@ def on_message(client, userdata, msg):
         except Exception as e:
             # logging.warning(e)
             logging.error("Catch an exception.", exc_info=True)
+            logging.error("mac=%s, datanumber=%d"%(msg.topic,len(put_values[msg.topic])))
+            logging.error(put_values[msg.topic])
             return
         # except:
         #     print("sheet error")

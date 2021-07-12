@@ -114,7 +114,12 @@ def on_connect(client, userdata, flags, rc):
 def on_message(client, userdata, msg):
     # 轉換編碼utf-8才看得懂中文
     # print(msg.topic+" "+ msg.payload.decode('utf-8'))
-    decode_data = json.loads(msg.payload.decode('utf-8'))
+    try:
+        decode_data = json.loads(msg.payload.decode('utf-8'))
+    except Exception as e:
+        logging.error("Json format error.", exc_info=True)
+        logging.error(msg.payload)
+        return
 
     if decode_data["CMD"] != 0 :
         return

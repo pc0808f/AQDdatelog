@@ -113,7 +113,7 @@ put_values ={MachineMac[0]+"_DEV":[],
          MachineMac[4]+"_DEV":[],
          MachineMac[5]+"_DEV":[],
          MachineMac[6]+"_DEV":[],
-         MachineMac[7]+"_DEV":[]
+         MachineMac[7]+"_DEV":[],
          MachineMac[8] + "_DEV": [],
          MachineMac[9] + "_DEV": [],
          MachineMac[10] + "_DEV": [],

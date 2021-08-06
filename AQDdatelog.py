@@ -33,6 +33,14 @@ sheet_room5 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M")
 sheet_room6 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM6")
 sheet_room7 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM7")
 sheet_room8 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM8")
+sheet_room9 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM9")
+sheet_room10 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM10")
+sheet_room11 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM11")
+sheet_room12 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM12")
+sheet_room13 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM13")
+sheet_room14 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM14")
+sheet_room15 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM15")
+sheet_room16 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM16")
 
 MachineMac = sheet_cfg.row_values(2)
 headers = sheet_room1.row_values(1)
@@ -46,6 +54,15 @@ MachineMac_Sheet_Table={    MachineMac[0]:sheet_room1,
                             MachineMac[5]:sheet_room6,
                             MachineMac[6]:sheet_room7,
                             MachineMac[7]:sheet_room8,
+                            MachineMac[8]:sheet_room9,
+                            MachineMac[9]:sheet_room10,
+                            MachineMac[10]:sheet_room11,
+                            MachineMac[11]:sheet_room12,
+                            MachineMac[12]:sheet_room13,
+                            MachineMac[13]:sheet_room14,
+                            MachineMac[14]:sheet_room15,
+                            MachineMac[15]:sheet_room16
+
                         }
 
 # row = sheet.row_values(3)  # Get a specific row
@@ -75,7 +92,16 @@ AQDlist={MachineMac[0]+"_DEV":[],
          MachineMac[4]+"_DEV":[],
          MachineMac[5]+"_DEV":[],
          MachineMac[6]+"_DEV":[],
-         MachineMac[7]+"_DEV":[]}
+         MachineMac[7]+"_DEV":[],
+         MachineMac[8]+"_DEV":[],
+         MachineMac[9]+"_DEV":[],
+         MachineMac[10]+"_DEV":[],
+         MachineMac[11]+"_DEV":[],
+         MachineMac[12]+"_DEV":[],
+         MachineMac[13]+"_DEV":[],
+         MachineMac[14]+"_DEV":[],
+         MachineMac[15]+"_DEV":[]
+         }
 # AQDlist.['MAC'] = ''
 # AQDlist.['SENSORDATA'] = ''
 
@@ -87,7 +113,16 @@ put_values ={MachineMac[0]+"_DEV":[],
          MachineMac[4]+"_DEV":[],
          MachineMac[5]+"_DEV":[],
          MachineMac[6]+"_DEV":[],
-         MachineMac[7]+"_DEV":[]}
+         MachineMac[7]+"_DEV":[]
+         MachineMac[8] + "_DEV": [],
+         MachineMac[9] + "_DEV": [],
+         MachineMac[10] + "_DEV": [],
+         MachineMac[11] + "_DEV": [],
+         MachineMac[12] + "_DEV": [],
+         MachineMac[13] + "_DEV": [],
+         MachineMac[14] + "_DEV": [],
+         MachineMac[15] + "_DEV": []
+         }
 
 # 當地端程式連線伺服器得到回應時，要做的動作
 def on_connect(client, userdata, flags, rc):
@@ -104,6 +139,14 @@ def on_connect(client, userdata, flags, rc):
     client.subscribe(MachineMac[5] + "_DEV")
     client.subscribe(MachineMac[6] + "_DEV")
     client.subscribe(MachineMac[7] + "_DEV")
+    client.subscribe(MachineMac[8] + "_DEV")
+    client.subscribe(MachineMac[9] + "_DEV")
+    client.subscribe(MachineMac[10] + "_DEV")
+    client.subscribe(MachineMac[11] + "_DEV")
+    client.subscribe(MachineMac[12] + "_DEV")
+    client.subscribe(MachineMac[13] + "_DEV")
+    client.subscribe(MachineMac[14] + "_DEV")
+    client.subscribe(MachineMac[15] + "_DEV")
     # client.subscribe("A8:03:2A:57:0C:E0_DEV")
     # client.subscribe("A8:03:2A:57:0C:FC_DEV")
     # client.subscribe("A8:03:2A:57:0C:CC_DEV")

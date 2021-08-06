@@ -39,6 +39,14 @@ sheet_room5 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M")
 sheet_room6 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM6")
 sheet_room7 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM7")
 sheet_room8 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM8")
+sheet_room9 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM9")
+sheet_room10 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM10")
+sheet_room11 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM11")
+sheet_room12 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM12")
+sheet_room13 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM13")
+sheet_room14 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM14")
+sheet_room15 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM15")
+sheet_room16 = client.open_by_key("1rXAzhcdQVtW7x1m_AXQO6tqbTiAjXymIx4i6e7NC09M").worksheet("ROOM16")
 
 # MachineMac = sheet_cfg.row_values(2)
 # headers = sheet_room1.row_values(1)
@@ -73,7 +81,15 @@ sheetList={ sheet_room1,
             sheet_room5,
             sheet_room6,
             sheet_room7,
-            sheet_room8
+            sheet_room8,
+            sheet_room9,
+            sheet_room10,
+            sheet_room11,
+            sheet_room12,
+            sheet_room13,
+            sheet_room14,
+            sheet_room15,
+            sheet_room16
             }
 # i=0
 for i, sheet in enumerate(sheetList):
